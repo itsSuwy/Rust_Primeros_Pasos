@@ -59,8 +59,75 @@ fn main() {
     // For 64-bit = f64 <- This is the standard when Rust is going to automatically assign the type
     // Example:
     let float = 2.5; // Rust assigns a f64 (64 bits)
+    println!("The value of float is: {float}");
     let float_2: f32 = 3.5; // Here, we are explicitly telling rust: This variable must be of 32 bits
+    println!("The value of float is: {float_2}");
     // In Rust the floating-points follow the IEEE-754
 
-    let guess: u32 = "42".parse().expect("Not a number!");
+    // Numeric Operations
+    // Rust supports the basic mathematical operations
+
+    // Addition:
+    let sum: u32 = 5 + 10; // We use u because they are two positives
+    println!("The value of sum_1 is: {sum}");
+    let sum_2: i32 = 5 + 10; // This work too, but its unnecesary to use i because the result will be positive
+    println!("The value of sum_2 is: {sum_2}");
+    let sum_3: f32 = 10.5 + 20.4; // This can work!
+    println!("The value of sum_3 is: {sum_3}");
+    //let sum_2: u32 = 5 -10; // THIS IS INCORRECT, NEVER DO THIS WITH THE U
+    // Remember that u must store a positive value, if we give a negative, the program will generate a panic error
+
+    // Substraction:
+    let diff: i32 = 5 - 10; // This is correct, the result will be negative, and the i can store it
+    println!("The value of diff_1 is: {diff}");
+    let diff_2: f32 = 95.5 - 10.9; // This can work!
+    println!("The value of diff_2 is: {diff_2}");
+    //let diff_2: f32 = 95.5 - 10; // This wonet div_2: f32 = 5 / 10;t work! You cant substract a integer from a floating-point!
+
+    //Multiplication:
+    let mult_1: u32 = 5 * 10; // This works!
+    println!("The value of mult_1 is: {mult_1}");
+    let mult_2: i32 = 5 * -10; // This works too!
+    println!("The value of mult_2 is: {mult_2}");
+    let mult_3: f32 = 4.3 * 2.9; // This also works!
+    println!("The value of mult_3 is: {mult_3}");
+    // let mult_4: u32 = 5 * 10.9 // This cant work!
+
+    // Division:
+    let div_1: u32 = 5 / 10; // This works but there is a Fine print!
+    // The result will be an integer too (in this case positive), i wont have ani decimal point
+    println!("The value of div_1 is: {div_1}");
+    //let div_2: f32 = 5 / 10; // This doesnt work because Rust is reading two integers instead of floating-point
+    // There are two ways to correct this!
+    // Option 1:
+    let div_3: f32 = 5.0 / 10.0; // We add the decimal point to the number
+    println!("The value of div_3 is: {div_3}");
+    // Option 2:
+    let div_3: f32 = 5f32 / 10f32; // We add the format to the numbers we want to divide
+    println!("The value of div_3 is: {div_3}");
+    // Both ways can perfectly work!
+    // But there is a problem....
+    // What about if we try to do this?
+    let a: u32 = 9;
+    let b: u32 = 10;
+    //let div_4: f32 = af32 / bf32; // Rust doesnt know the the heck is af32 or bf32!
+    // And the program will crash :(
+    // Instead of this, you can do this
+    let div_4: f32 = (a as f32) / (b as f32); // This works!
+    println!("The value of div_4 is: {div_4}");
+    // But there is a problem, a great power comes a great responsability
+    // Using as could crash your code if you dont know how to use it
+    // For example if you have a variable that is size is 8 bits, and you give
+    // (variable as u64), there wont be a problem, because the size if perfect for your variable
+    // But if your variable is u64 and you want to use (variable as f32)
+    // The size of bits is smaller than the original variable! BOOOOM! Information lost and you'll get an strange number!
+    // So, always use as with caution :)
+
+    // Remainder
+    let rem_1: u32 = 43 % 3;
+    println!("The remainder of rem_1 is: {rem_1}");
+
+    // And thats all of basic math operations!
+
+    //let guess: u32 = "42".parse().expect("Not a number!");
 }
