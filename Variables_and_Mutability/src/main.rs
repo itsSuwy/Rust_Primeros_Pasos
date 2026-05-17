@@ -130,4 +130,11 @@ fn main() {
     // And thats all of basic math operations!
 
     //let guess: u32 = "42".parse().expect("Not a number!");
+
+    // The boolean type of data!
+    // A boolean can have two different values: True o False
+    let bool_1 = true; // Implicit way to declare it <- Rust has to figure out the type of data
+    let bool_2: bool = true; // Explicit wat to declare it <- You tell rust the especific type of data
+
+
 }
