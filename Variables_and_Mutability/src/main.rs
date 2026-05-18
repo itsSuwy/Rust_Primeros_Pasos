@@ -168,5 +168,27 @@ fn main() {
     let six_point_four = x.1; // To access to the second element
     let one = x.2; // To access to the third element
 
+    // The array type!
+    // Unlike a tuple, every element of an array must be of the same type
+    // You cant have a char and an integer, or an unsigned integer with a signed integer
+    // Example
+    let a = [1, 2, 3, 4, 5]; // The implicit way to define an array
+    let b: [u8;5] = [1, 2, 3, 4, 5]; // The explicit way to define an array (We decide the size of each elementes to store)
+    // Notice how we use the same kind of data inside the array
+    // Another way to use arrays
+    let c = [3;5]; // Implicit declaration
+    // Its the same as writing:
+    let c_1 = [3,3,3,3,3]; // Wow!
+    // Btw, the explicit sintaxis is like this:
+    let c_2:[u8;5] = [3;5]; // Explicit way
+    let c_3:[u8;5] = [3,3,3,3,3]; // Explicit way
+    // Both works in the same way!
+
+    // How to access to an array element?
+    let my_array:[u8;3] = [3,3,3];
+    let first = my_array[0];
+    let second = my_array[1];
+    let third = my_array[2];
+    // Thats how we access to each element of the array!
 
 }
