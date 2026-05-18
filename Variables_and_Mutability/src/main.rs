@@ -132,9 +132,17 @@ fn main() {
     //let guess: u32 = "42".parse().expect("Not a number!");
 
     // The boolean type of data!
-    // A boolean can have two different values: True o False
+    // A boolean can have two different values: True o False, also it consumes 4 bytes
     let bool_1 = true; // Implicit way to declare it <- Rust has to figure out the type of data
+    println!("The value of bool_1 is: {bool_1}");
     let bool_2: bool = true; // Explicit wat to declare it <- You tell rust the especific type of data
+    println!("The value of bool_2 is: {bool_2}");
 
-
+    // The character type of data!
+    // Represents just 1 character, can be a number, letter, digit or emoji!
+    // Also it consumes 4 bytes
+    let char_1: char = 'a'; // Note that we uses single quotation mark (' ') to denote it, a string uses doble quotation mark ("")
+    println!("The value of char_1 is: {char_1}"); // Note that we used the explicit way
+    let char_2 = 'b'; // Here is the implicit form to express it
+    println!("The value of char_2 is: {char_2}");
 }
