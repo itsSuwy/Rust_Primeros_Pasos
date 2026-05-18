@@ -145,4 +145,28 @@ fn main() {
     println!("The value of char_1 is: {char_1}"); // Note that we used the explicit way
     let char_2 = 'b'; // Here is the implicit form to express it
     println!("The value of char_2 is: {char_2}");
+
+    // With that, we are already covered all the scalar data types!
+    // Now it's time to talk about the "Compount" types!
+    // The Tuple
+    // The tuple is a way to agroup together a number of values with a varity of types into one compound type
+    // However, The tuple cant grow or shrik once declared
+    // Example:
+    let tup: (i32, f64, u8) = (-400,3.5,9); // Here we declarate and filled the tuple
+    // Another way to do it
+    let tupl = (500,5.6,4); // First we fill our tuple
+    let (x, y, z) = tupl; // Then we assign each valor to a variable in a implicit way
+    // This is known as destructuring
+    println!("The values of x, y and z are: {x} {y} {z}");
+    // Another way to do it is like this:
+    let tuple: (i32, f64, u8) = (-10,2.8,2); // The explicit way to tell Rust the size of the elements
+    let (x,y,z) = tuple;
+    println!("The values of x, y and z are: {x} {y} {z}");
+    // To access to a tuple element, we use a period (.)
+    let x: (i32, f64, u8) = (500, 6.4, 1);
+    let five_hundred = x.0; // To access to the first element
+    let six_point_four = x.1; // To access to the second element
+    let one = x.2; // To access to the third element
+
+
 }
