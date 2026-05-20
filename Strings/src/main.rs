@@ -44,6 +44,18 @@ fn main() {
     // Even though the String pointer is in the Stack, the actual text is in the Heap.
     // Rust FORBIDS 'Copy' here to prevent pointers from duplicating and messing up hardware memory (Double Free Error).
 
+    // Ownership of variables
+    // For example:
+    let s = String::from("Im S!"); // We create the string
+    takes_ownership(s); // Then we give it to the funcion
+    // From here, S dies from a free of the compiler!
+    let e = 5;
+    makes_copy(e);
+    // From here, e dies!
+
+    // Basically, the compiler analyzes if after the function another part of the code uses e
+    // If nobody else uses e, the compiler kills our variable, same happends with S
+    // It does that to optimize the code, removing death code
 
     // Bonus: Life of a variable
     let x:u8 = 9;
@@ -54,4 +66,10 @@ fn main() {
     } // It gets deleted here!
     println!("{x}"); // But x survives!
     //println!("{y}");
+}
+fn takes_ownership(some_string: String) { // Receives our string
+    println!("{some_string}");
+} // Here the compiler kills our string, liberating the memory of the string
+fn makes_copy(some_integer: i32) {
+    println!("{some_integer}");
 }
