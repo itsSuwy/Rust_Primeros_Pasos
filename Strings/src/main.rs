@@ -57,6 +57,13 @@ fn main() {
     // If nobody else uses e, the compiler kills our variable, same happends with S
     // It does that to optimize the code, removing death code
 
+    // Returning multiple values in a function
+    let s4 = String::from("Hello, world!"); // Our variable
+    let (s5, len) = calculate_length(s4); // Another variable that contains two elementes: S5 (String) and len (unsigned integer)
+    // Basically S5 stores the string from S4 and also stores the lenth of the string!
+    println!("The length of {s5} is {len}");
+    // let (s5, len): (String, u8) = calculate_length(s4) // Here we just modify the size of the unsigned integer
+
     // Bonus: Life of a variable
     let x:u8 = 9;
     {
@@ -72,4 +79,8 @@ fn takes_ownership(some_string: String) { // Receives our string
 } // Here the compiler kills our string, liberating the memory of the string
 fn makes_copy(some_integer: i32) {
     println!("{some_integer}");
+}
+fn calculate_length(s: String) -> (String, usize) { // This function will return a string and a usize
+    let length = s.len();
+    (s, length) // Returning both values!
 }
